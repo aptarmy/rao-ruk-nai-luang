@@ -196,7 +196,7 @@ class RaoRukNaiLuang {
 			'type' => 'custom',
 			'custom' => '
 				<article class="markdown-body">
-				<p>ปลั๊กอินนี้จะเกิดขึ้นไม่ได้ หากไม่มีวัตถุดิบเหล่านี้ ผมจึงขอให้เครดิตเครื่องมือ(framework) รูปภาพ กับฟอนต์ที่เอามาทำแบนเนอร์ และปลั๊กอินครับ ผมขอขอบคุณเจ้าของผลงานทุกๆท่านไว้ ณ ที่นี้ด้วยครับ</p>
+				<p>ปลั๊กอินนี้จะเกิดขึ้นไม่ได้ หากไม่มีวัตถุดิบเหล่านี้ ผมจึงขอใช้พื้นที่ส่วนนี้ ให้เครดิตเครื่องมือ(framework) รูปภาพ กับฟอนต์ที่เอามาทำแบนเนอร์ และปลั๊กอินครับ ผมขอขอบคุณเจ้าของผลงานทุกๆท่านไว้ ณ ที่นี้ด้วยครับ</p>
 				<h1>ขอบคุณ framework จาก</h1>
 				<ul>
 				<li><a href="http://www.titanframework.net/">http://www.titanframework.net/</a></li>
@@ -210,6 +210,7 @@ class RaoRukNaiLuang {
 				<h1>ขอบคุณฟอนต์จาก</h1>
 				<ul>
 				<li><a href="http://www.f0nt.com/release/saruns-manorah/">http://www.f0nt.com/release/saruns-manorah/</a></li>
+				<li><a href="https://fonts.google.com/specimen/Kanit">https://fonts.google.com/specimen/Kanit</a></li>
 				</ul>
 				<h1>นักพัฒนาปลั๊กอิน</h1>
 				<ul>
