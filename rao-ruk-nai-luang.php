@@ -95,7 +95,7 @@ class RaoRukNaiLuang {
 		if (!is_admin() && $this->titan->getOption( 'is_black_and_white' )) {
 			$gray_scale = $this->titan->getOption( 'gray_scale_percent' );
 		?>
-			<style id="row_ruk_nai_luang_black_and_white_css" type="text/css">body * {-moz-filter: grayscale(<?php echo $gray_scale; ?>%); -webkit-filter: grayscale(<?php echo $gray_scale; ?>%); filter: grayscale(<?php echo $gray_scale; ?>%); }</style>
+			<style id="row_ruk_nai_luang_black_and_white_css" type="text/css">body {-moz-filter: grayscale(<?php echo $gray_scale; ?>%); -webkit-filter: grayscale(<?php echo $gray_scale; ?>%); filter: gray; filter: grayscale(<?php echo $gray_scale; ?>%); }</style>
 		<?php
 		}
 	}
@@ -115,7 +115,7 @@ class RaoRukNaiLuang {
 		        '0' => 'ปิดการใช้งาน',
 		        '1' => 'เปิดการใช้งาน',
 		    ),
-		    'desc' => 'แบนเนอร์นี้จะแสดงให้ผู้เข้าเว็บเห็นครั้งเดียว ถ้าปิดแท็บแล้วเปิดใหม่ แบนเนอร์ก็จะโชว์อีกรอบ (หรือเรียกสั้นๆว่า session storage)',
+		    'desc' => 'แบนเนอร์นี้จะแสดงให้ผู้เข้าเว็บเห็นครั้งเดียว ถ้าปิดแท็บแล้วเปิดใหม่ แบนเนอร์ก็จะโชว์อีกรอบ (หรือเรียกสั้นๆว่า session)',
 		    'type' => 'radio',
 		    'default' => '1',
 		) );
@@ -221,7 +221,9 @@ class RaoRukNaiLuang {
 	}
 
 	public function enqueue() {
-		wp_enqueue_style( 'rao_ruk_nai_luang_font_kanit', 'https://fonts.googleapis.com/css?family=Kanit', array() );
+		if($this->titan->getOption( 'is_show_banner' )) {
+			wp_enqueue_style( 'rao_ruk_nai_luang_font_kanit', 'https://fonts.googleapis.com/css?family=Kanit', array() );
+		}
 	}
 }
 new RaoRukNaiLuang();
