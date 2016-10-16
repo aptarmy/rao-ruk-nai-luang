@@ -164,17 +164,17 @@ class RaoRukNaiLuang {
 					!sessionStorage.rao_ruk_nai_luang_displayed &&
 					$('body').append('<div class="rao_ruk_nai_luang_background <?php echo $this->titan->getOption( 'banner' ); ?>"><img class="rao_ruk_nai_luang_close" src="<?php echo plugin_dir_url(__FILE__); ?>asset/images/close-icon.png"><div class="rao_ruk_nai_luang_container"><img class="rao_ruk_nai_luang_img" src="<?php echo plugin_dir_url(__FILE__); ?>asset/images/<?php echo $this->titan->getOption( 'banner' ); ?>.png"><span class="rao_ruk_nai_luang_site_owners">ข้าพระพุทธเจ้า <?php echo $this->titan->getOption( 'site_owners' ); ?></span></div></div>'),
 					$('body').css({'overflow':'hidden'}),
-					$('body').on('click', '.rao_ruk_nai_luang_close', function(){ $('.rao_ruk_nai_luang_background').removeClass('show'); $('body').css({'overflow':'initial'}); setTimeout(function(){$('.rao_ruk_nai_luang_background').remove();}, 300); }),
+					$('body').on('click', '.rao_ruk_nai_luang_close', function(){ $('.rao_ruk_nai_luang_background').removeClass('show'); $('body').css({'overflow':'auto'}); setTimeout(function(){$('.rao_ruk_nai_luang_background').remove();}, 300); }),
 					sessionStorage.rao_ruk_nai_luang_displayed = true;
 					setTimeout(function(){$('.rao_ruk_nai_luang_background').addClass('show');}, 300);
 				});
 			})(jQuery);
 		</script>
 		<style type="text/css">
-			.rao_ruk_nai_luang_background { opacity: 0; display: none; pointer-events: none; }
+			.rao_ruk_nai_luang_background { opacity: 0; display: none; }
 			@media (min-width: <?php echo $this->titan->getOption( 'hide_banner_at' ); ?>px) {
 				.rao_ruk_nai_luang_background { display: block; z-index: 100000; position: fixed; right: 0px; top: 0px; width: 100vw; height: 100vh; background-color: rgba(0, 0, 0, 0.8); transition: all 0.3s ease; }
-				.rao_ruk_nai_luang_background.show { opacity: 1; pointer-events: initial; }
+				.rao_ruk_nai_luang_background.show { opacity: 1; }
 				.rao_ruk_nai_luang_container { width: 80vw; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); max-width: 100%; }
 				.rao_ruk_nai_luang_img { width: 100%; }
 				.rao_ruk_nai_luang_site_owners { font-family: 'manorah', sans-serif; pointer-events: none; }
