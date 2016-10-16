@@ -55,4 +55,3 @@
 ### ขอบคุณฟอนต์จาก
 
 - http://www.f0nt.com/release/saruns-manorah/
-- https://fonts.google.com/specimen/Kanit

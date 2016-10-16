@@ -163,7 +163,8 @@ class RaoRukNaiLuang {
 				$(document).ready(function(){
 					!sessionStorage.rao_ruk_nai_luang_displayed &&
 					$('body').append('<div class="rao_ruk_nai_luang_background <?php echo $this->titan->getOption( 'banner' ); ?>"><img class="rao_ruk_nai_luang_close" src="<?php echo plugin_dir_url(__FILE__); ?>asset/images/close-icon.png"><div class="rao_ruk_nai_luang_container"><img class="rao_ruk_nai_luang_img" src="<?php echo plugin_dir_url(__FILE__); ?>asset/images/<?php echo $this->titan->getOption( 'banner' ); ?>.png"><span class="rao_ruk_nai_luang_site_owners">ข้าพระพุทธเจ้า <?php echo $this->titan->getOption( 'site_owners' ); ?></span></div></div>'),
-					$('body').on('click', '.rao_ruk_nai_luang_close', function(){ $('.rao_ruk_nai_luang_background').removeClass('show'); setTimeout(function(){$('.rao_ruk_nai_luang_background').remove();}, 300); }),
+					$('body').css({'overflow':'hidden'}),
+					$('body').on('click', '.rao_ruk_nai_luang_close', function(){ $('.rao_ruk_nai_luang_background').removeClass('show'); $('body').css({'overflow':'initial'}); setTimeout(function(){$('.rao_ruk_nai_luang_background').remove();}, 300); }),
 					sessionStorage.rao_ruk_nai_luang_displayed = true;
 					setTimeout(function(){$('.rao_ruk_nai_luang_background').addClass('show');}, 300);
 				});
@@ -172,13 +173,13 @@ class RaoRukNaiLuang {
 		<style type="text/css">
 			.rao_ruk_nai_luang_background { opacity: 0; display: none; pointer-events: none; }
 			@media (min-width: <?php echo $this->titan->getOption( 'hide_banner_at' ); ?>px) {
-				.rao_ruk_nai_luang_background { display: block; z-index: 100000; position: fixed; right: 0px; top: 0px; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8); transition: all 0.3s ease; }
+				.rao_ruk_nai_luang_background { display: block; z-index: 100000; position: fixed; right: 0px; top: 0px; width: 100vw; height: 100vh; background-color: rgba(0, 0, 0, 0.8); transition: all 0.3s ease; }
 				.rao_ruk_nai_luang_background.show { opacity: 1; pointer-events: initial; }
-				.rao_ruk_nai_luang_container { width: 80vw; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); max-width: 100%; }
+				.rao_ruk_nai_luang_container { width: 80vw; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); max-width: 100%; }
 				.rao_ruk_nai_luang_img { width: 100%; }
-				.rao_ruk_nai_luang_site_owners { font-family: 'Kanit', sans-serif; pointer-events: none; }
+				.rao_ruk_nai_luang_site_owners { font-family: 'manorah', sans-serif; pointer-events: none; }
 				.banner_1 .rao_ruk_nai_luang_site_owners { position: absolute; top: 88%; left: 2%; right: 0%; color: #fdc655; text-shadow: 0px 0px 10px black; text-align: center; font-size: 18px; }
-				.banner_2 .rao_ruk_nai_luang_site_owners { position: absolute; top: 74%; left: 38%; right: 8%; color: #fdc655; text-shadow: 0px 0px 10px black; text-align: center; font-size: 20px; }
+				.banner_2 .rao_ruk_nai_luang_site_owners { position: absolute; top: 73%; left: 38%; right: 8%; color: #fdc655; text-shadow: 0px 0px 10px black; text-align: center; font-size: 23px; }
 				.rao_ruk_nai_luang_close { position: fixed; width: 30px; right: 15px; top: 15px; cursor: pointer; transition: transform 0.3s ease; }
 				.rao_ruk_nai_luang_close:hover { transform: rotateZ(90deg); }
 			}
@@ -223,7 +224,7 @@ class RaoRukNaiLuang {
 
 	public function enqueue() {
 		if($this->titan->getOption( 'is_show_banner' )) {
-			wp_enqueue_style( 'rao_ruk_nai_luang_font_kanit', 'https://fonts.googleapis.com/css?family=Kanit', array() );
+			wp_enqueue_style( 'rao_ruk_nai_luang_font_manorah', plugin_dir_url(__FILE__) . 'asset/css/fonts.css', array() );
 		}
 	}
 }
