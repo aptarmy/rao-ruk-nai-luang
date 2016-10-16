@@ -10,7 +10,7 @@ Author URI: https://github.com/aptarmy/rao-ruk-nai-luang
 if ( ! defined( 'ABSPATH' ) ) { exit; // Exit if accessed directly.
 }
 
-require_once('Titan-Framework/titan-framework-embedder.php');
+require_once( plugin_dir_path( __FILE__ ) . 'Titan-Framework/titan-framework-embedder.php');
 
 /**
 * All Plugin functionalities
@@ -163,7 +163,7 @@ class RaoRukNaiLuang {
 				$(document).ready(function(){
 					!sessionStorage.rao_ruk_nai_luang_displayed &&
 					$('body').append('<div class="rao_ruk_nai_luang_background <?php echo $this->titan->getOption( 'banner' ); ?>"><img class="rao_ruk_nai_luang_close" src="<?php echo plugin_dir_url(__FILE__); ?>asset/images/close-icon.png"><div class="rao_ruk_nai_luang_container"><img class="rao_ruk_nai_luang_img" src="<?php echo plugin_dir_url(__FILE__); ?>asset/images/<?php echo $this->titan->getOption( 'banner' ); ?>.png"><span class="rao_ruk_nai_luang_site_owners">ข้าพระพุทธเจ้า <?php echo $this->titan->getOption( 'site_owners' ); ?></span></div></div>'),
-					$('body').on('click', '.rao_ruk_nai_luang_close', function(){ $('.rao_ruk_nai_luang_background').removeClass('show'); }),
+					$('body').on('click', '.rao_ruk_nai_luang_close', function(){ $('.rao_ruk_nai_luang_background').removeClass('show'); setTimeout(function(){$('.rao_ruk_nai_luang_background').remove();}, 300); }),
 					sessionStorage.rao_ruk_nai_luang_displayed = true;
 					setTimeout(function(){$('.rao_ruk_nai_luang_background').addClass('show');}, 300);
 				});
@@ -196,6 +196,7 @@ class RaoRukNaiLuang {
 			'type' => 'custom',
 			'custom' => '
 				<article class="markdown-body">
+				<p>ปลั๊กอินนี้จะเกิดขึ้นไม่ได้ หากไม่มีวัตถุดิบเหล่านี้ ผมจึงขอให้เครดิตเครื่องมือ(framework) รูปภาพ กับฟอนต์ที่เอามาทำแบนเนอร์ และปลั๊กอินครับ ผมขอขอบคุณเจ้าของผลงานทุกๆท่านไว้ ณ ที่นี้ด้วยครับ</p>
 				<h1>ขอบคุณ framework จาก</h1>
 				<ul>
 				<li><a href="http://www.titanframework.net/">http://www.titanframework.net/</a></li>
