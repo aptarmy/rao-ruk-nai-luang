@@ -161,12 +161,14 @@ class RaoRukNaiLuang {
 		<script type="text/javascript">
 			(function($){
 				$(document).ready(function(){
-					!sessionStorage.rao_ruk_nai_luang_displayed &&
-					$('body').append('<div class="rao_ruk_nai_luang_background <?php echo $this->titan->getOption( 'banner' ); ?>"><img class="rao_ruk_nai_luang_close" src="<?php echo plugin_dir_url(__FILE__); ?>asset/images/close-icon.png"><div class="rao_ruk_nai_luang_container"><img class="rao_ruk_nai_luang_img" src="<?php echo plugin_dir_url(__FILE__); ?>asset/images/<?php echo $this->titan->getOption( 'banner' ); ?>.png"><span class="rao_ruk_nai_luang_site_owners">ข้าพระพุทธเจ้า <?php echo $this->titan->getOption( 'site_owners' ); ?></span></div></div>'),
-					$('body').css({'overflow':'hidden'}),
-					$('body').on('click', '.rao_ruk_nai_luang_close', function(){ $('.rao_ruk_nai_luang_background').removeClass('show'); $('body').css({'overflow':'auto'}); setTimeout(function(){$('.rao_ruk_nai_luang_background').remove();}, 300); }),
-					sessionStorage.rao_ruk_nai_luang_displayed = true;
-					setTimeout(function(){$('.rao_ruk_nai_luang_background').addClass('show');}, 300);
+					if(!sessionStorage.rao_ruk_nai_luang_displayed) {
+						$('body').append('<div class="rao_ruk_nai_luang_background <?php echo $this->titan->getOption( 'banner' ); ?>"><img class="rao_ruk_nai_luang_close" src="<?php echo plugin_dir_url(__FILE__); ?>asset/images/close-icon.png"><div class="rao_ruk_nai_luang_container"><img class="rao_ruk_nai_luang_img" src="<?php echo plugin_dir_url(__FILE__); ?>asset/images/<?php echo $this->titan->getOption( 'banner' ); ?>.png"><span class="rao_ruk_nai_luang_site_owners">ข้าพระพุทธเจ้า <?php echo $this->titan->getOption( 'site_owners' ); ?></span></div></div>');
+						console.log('run');
+						$('body').css({'overflow':'hidden'});
+						$('body').on('click', '.rao_ruk_nai_luang_close', function(){ $('.rao_ruk_nai_luang_background').removeClass('show'); $('body').css({'overflow':'auto'}); setTimeout(function(){$('.rao_ruk_nai_luang_background').remove();}, 300); });
+						sessionStorage.rao_ruk_nai_luang_displayed = true;
+						setTimeout(function(){$('.rao_ruk_nai_luang_background').addClass('show');}, 300);
+					}
 				});
 			})(jQuery);
 		</script>
